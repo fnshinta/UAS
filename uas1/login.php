@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login dengan Animasi Partikel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Tempat animasi partikel -->
+  <div id="particles-js"></div>
+
+  <!-- Form login -->
+  <form class="login-container" action="users/login_process.php" method="post">
+    <h2>Login</h2>
+    <?php
+        session_start();
+        if (isset($_SESSION['error_message'])) {
+            echo "<div class='error-message'>{$_SESSION['error_message']}</div>";
+            unset($_SESSION['error_message']);
+        }
+    ?>
+
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" placeholder="Username" required>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Password" required>
+    </div>
+
+    <button type="submit" class="login-button">Masuk</button>
+    <a href="#" class="forgot-password">Forgot Password?</a>
+</form>
+
+  <!-- Library Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="particles-config.js"></script>
+</body>
+</html>
